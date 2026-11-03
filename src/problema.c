@@ -72,7 +72,7 @@ Problema criarProblema(char cenario) {
     problema.quantidadeInstalacoes = MAX_INSTALACOES;
 
     snprintf(problema.nome, sizeof(problema.nome), "%s",
-             cenario == 'A' ? "A_SSL_Thamirabarani_ILUSTRATIVO" : "B_Sample_Ship_Japao");
+             cenario == 'A' ? "A_SSL_Thamirabarani" : "B_Sample_Ship_Japao");
 
     problema.instalacoes[0] = criarInstalacao("F1_Tratamento_revestimentos", 450, 12, 0.045, 85, 0.0020, tipo0, 1);
     problema.instalacoes[1] = criarInstalacao("F2_Tratamento_amianto", 350, 9, 0.028, 115, 0.0016, tipo1, 1);

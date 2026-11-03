@@ -31,7 +31,7 @@ static void testarProblemas(void) {
 
     VERIFICAR(cenarioA.quantidadeResiduos == 7, "cenario A deve possuir sete residuos");
     VERIFICAR(cenarioA.quantidadeInstalacoes == 6, "cenario A deve possuir seis instalacoes");
-    VERIFICAR(strcmp(cenarioA.nome, "A_SSL_Thamirabarani_ILUSTRATIVO") == 0,
+    VERIFICAR(strcmp(cenarioA.nome, "A_SSL_Thamirabarani") == 0,
               "nome do cenario A deve ser preservado");
     VERIFICAR(cenarioB.residuos[5].quantidadeKg == 96.0,
               "inventario do cenario B deve ser preservado");

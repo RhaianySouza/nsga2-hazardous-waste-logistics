@@ -32,7 +32,7 @@ As unidades são dimensionalmente consistentes sob as interpretações de custo/
 
 | Característica | Caso A | Caso B |
 |---|---|---|
-| Identificador no programa | `A_SSL_Thamirabarani_ILUSTRATIVO` | `B_Sample_Ship_Japao` |
+| Identificador no programa | `A_SSL_Thamirabarani` | `B_Sample_Ship_Japao` |
 | Contexto | MV SSL Thamirabarani; instância hipotética | *Sample Ship*; quantidades aproximadas de inventário-modelo |
 | Lotes | 7 | 7 |
 | Destinadores | 6, simulados | 6, simulados |
