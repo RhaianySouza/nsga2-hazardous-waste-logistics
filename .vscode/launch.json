@@ -1,0 +1,31 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "NSGA-II C: depurar programa",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${env:TEMP}\\ica_nsga2-c-build\\programa_nsga2.exe",
+      "args": ["A", "8", "3", "--log", "summary", "--output", "${env:TEMP}\\ica_nsga2-c-debug"],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe",
+      "preLaunchTask": "NSGA-II C: compilar"
+    },
+    {
+      "name": "NSGA-II C: depurar testes",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${env:TEMP}\\ica_nsga2-c-build\\testes.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe",
+      "preLaunchTask": "NSGA-II C: testar"
+    }
+  ]
+}

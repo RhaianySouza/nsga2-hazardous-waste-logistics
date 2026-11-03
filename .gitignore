@@ -1,0 +1,11 @@
+# Build artifacts
+*.o
+*.obj
+*.exe
+/build/
+/ica_nsga2_c
+/testes
+
+# Generated run outputs
+/results/
+results_*/

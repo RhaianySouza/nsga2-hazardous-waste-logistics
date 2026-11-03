@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "NSGA-II C: compilar",
+      "type": "process",
+      "command": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\compilar.ps1"
+      ],
+      "problemMatcher": ["$gcc"],
+      "group": {"kind": "build", "isDefault": true},
+      "presentation": {"reveal": "always", "panel": "shared", "clear": true}
+    },
+    {
+      "label": "NSGA-II C: testar",
+      "type": "process",
+      "command": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\compilar.ps1",
+        "-Testar"
+      ],
+      "problemMatcher": ["$gcc"],
+      "group": {"kind": "test", "isDefault": true},
+      "presentation": {"reveal": "always", "panel": "shared", "clear": true}
+    },
+    {
+      "label": "NSGA-II C: executar demonstracao",
+      "type": "process",
+      "command": "${env:TEMP}\\ica_nsga2-c-build\\programa_nsga2.exe",
+      "args": ["A", "8", "3", "--log", "steps", "--every", "1", "--output", "${env:TEMP}\\ica_nsga2-c-demo"],
+      "dependsOn": "NSGA-II C: compilar",
+      "problemMatcher": [],
+      "presentation": {"reveal": "always", "panel": "shared"}
+    },
+    {
+      "label": "NSGA-II C: verificar paridade",
+      "type": "process",
+      "command": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\tests\\verificar_paridade.ps1"
+      ],
+      "problemMatcher": [],
+      "presentation": {"reveal": "always", "panel": "shared", "clear": true}
+    }
+  ]
+}
