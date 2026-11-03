@@ -76,10 +76,20 @@ Parâmetros padrão: população `100`, gerações `200`, semente `20261102`, ca
 │   ├── validar_frente.ps1     # Validação de factibilidade e frente final
 │   └── verificar_paridade.ps1 # Comparação de regressão opcional
 ├── docs/
-│   └── AUDITORIA_TECNICA.md   # Auditoria científica e computacional
-├── .vscode/                   # Tarefas e depuração do projeto
-└── compilar.ps1               # Compilação no PowerShell
+│   └── artigo/                 # Artigos e documentos de referência incluídos
+├── results/                    # Saídas CSV geradas ao executar o programa
+│   ├── case_A/                  # Resultados do cenário A
+│   │   ├── pareto.csv
+│   │   ├── inventory.csv
+│   │   ├── facilities_SIMULATED.csv
+│   │   ├── steps.csv
+│   │   ├── generations.csv
+│   │   └── individuals.csv      # Somente com a opção --individuals
+│   └── case_B/                  # Mesmos arquivos para o cenário B no modo both
+└── compilar.ps1                # Compilação no PowerShell
 ```
+
+`results/` é criado na execução e não precisa existir antes. Ao executar `both` com a pasta padrão de saída, os arquivos são organizados em `results/case_A/` e `results/case_B/`; `individuals.csv` só é produzido quando a opção `--individuals` é informada. Os documentos de referência do projeto estão em `docs/artigo/`.
 
 ## Compilação e testes
 
@@ -116,19 +126,19 @@ O executável é criado em `%TEMP%\ica_nsga2-c-build\programa_nsga2.exe`. No Pow
 Demonstração detalhada do Caso A, com 8 indivíduos e 3 gerações:
 
 ```powershell
-& "$env:TEMP\ica_nsga2-c-build\programa_nsga2.exe" A 8 3 --seed 20261102 --log steps --every 1 --output "$env:TEMP\ica-nsga2-demo"
+& "$env:TEMP\ica_nsga2-c-build\programa_nsga2.exe" A 8 3 --seed 20261102 --log steps --every 1 --output ".\results-demo"
 ```
 
 Execução principal dos dois cenários:
 
 ```powershell
-& "$env:TEMP\ica_nsga2-c-build\programa_nsga2.exe" both 100 200 --seed 20261102 --log quiet --output "$env:TEMP\ica-nsga2-oficial"
+& "$env:TEMP\ica_nsga2-c-build\programa_nsga2.exe" both 100 200 --seed 20261102 --log quiet --output ".\results"
 ```
 
 Exportar histórico de indivíduos:
 
 ```powershell
-& "$env:TEMP\ica_nsga2-c-build\programa_nsga2.exe" A 8 3 --log full --every 1 --individuals --output "$env:TEMP\ica-nsga2-detalhado"
+& "$env:TEMP\ica_nsga2-c-build\programa_nsga2.exe" A 8 3 --log full --every 1 --individuals --output ".\results-detalhado"
 ```
 
 ```text
